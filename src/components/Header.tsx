@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BookButton } from "@/components/BookButton";
 import { navLinks, site } from "@/lib/site";
 
 export function Header() {
@@ -26,12 +27,11 @@ export function Header() {
           ))}
         </nav>
 
-        <Link
-          href="/contact"
-          className="rounded-full bg-gradient-to-r from-sky-500 to-pink-500 px-4 py-2 text-sm font-bold text-white shadow-md transition hover:from-sky-600 hover:to-pink-600"
-        >
-          Book Now
-        </Link>
+        <BookButton
+          label="Book Appointment"
+          variant="whatsapp"
+          className="!px-4 !py-2 !text-sm"
+        />
       </div>
 
       <nav className="flex gap-1 overflow-x-auto border-t border-sky-50 px-4 py-2 md:hidden">

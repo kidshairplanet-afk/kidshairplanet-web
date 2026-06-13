@@ -1,27 +1,12 @@
 import Link from "next/link";
-import { ServiceCard } from "@/components/ServiceCard";
-import { services, site } from "@/lib/site";
-
-const testimonials = [
-  {
-    quote:
-      "My son used to dread haircuts. Now he asks when we can go back to Kids Hair Planet!",
-    name: "Sarah M.",
-    role: "Mom of 2",
-  },
-  {
-    quote:
-      "The first-haircut package was adorable. They made our daughter feel like a superstar.",
-    name: "James T.",
-    role: "Dad",
-  },
-  {
-    quote:
-      "Patient stylists, bright space, and zero tears. We won't go anywhere else.",
-    name: "Priya K.",
-    role: "Parent",
-  },
-];
+import { BookButton } from "@/components/BookButton";
+import { ServiceCategory } from "@/components/ServiceCategory";
+import {
+  formatAddress,
+  serviceAreas,
+  serviceCategories,
+  site,
+} from "@/lib/site";
 
 export default function Home() {
   return (
@@ -33,10 +18,10 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
           <div>
             <p className="inline-flex rounded-full bg-white px-4 py-1 text-sm font-bold text-sky-600 shadow-sm">
-              Kid-friendly salon · Ages 0–12+
+              Walk-ins · Sandton Rivonia · House calls
             </p>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-              Happy hair days start at{" "}
+              Expert braiding at{" "}
               <span className="bg-gradient-to-r from-sky-600 to-pink-500 bg-clip-text text-transparent">
                 {site.name}
               </span>
@@ -45,15 +30,10 @@ export default function Home() {
               {site.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="rounded-full bg-gradient-to-r from-sky-500 to-pink-500 px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:from-sky-600 hover:to-pink-600"
-              >
-                Book an Appointment
-              </Link>
+              <BookButton label="Book Appointment" variant="whatsapp" />
               <Link
                 href="/services"
-                className="rounded-full border border-sky-200 bg-white px-6 py-3 text-sm font-bold text-sky-700 transition hover:bg-sky-50"
+                className="inline-flex items-center justify-center rounded-full border border-sky-200 bg-white px-6 py-3 text-sm font-bold text-sky-700 transition hover:bg-sky-50"
               >
                 View Services
               </Link>
@@ -61,24 +41,24 @@ export default function Home() {
           </div>
 
           <div className="rounded-[2rem] border border-white/80 bg-white/70 p-8 shadow-xl backdrop-blur">
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Stress-free cuts", icon: "✂️" },
-                { label: "First haircut moments", icon: "🎉" },
-                { label: "Fun styling", icon: "🎀" },
-                { label: "Patient stylists", icon: "💛" },
-              ].map((item) => (
+            <p className="text-center text-sm font-bold uppercase tracking-wider text-pink-500">
+              Why families choose us
+            </p>
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              {site.highlights.map((item) => (
                 <div
-                  key={item.label}
-                  className="rounded-2xl bg-gradient-to-br from-sky-50 to-pink-50 p-5 text-center"
+                  key={item.title}
+                  className="rounded-2xl bg-gradient-to-br from-sky-50 to-pink-50 p-4 text-center"
                 >
-                  <div className="text-3xl">{item.icon}</div>
-                  <p className="mt-2 text-sm font-bold text-slate-700">{item.label}</p>
+                  <div className="text-2xl">{item.emoji}</div>
+                  <p className="mt-2 text-xs font-bold leading-snug text-slate-700">
+                    {item.title}
+                  </p>
                 </div>
               ))}
             </div>
             <p className="mt-6 text-center text-sm font-semibold text-slate-500">
-              Walk-ins welcome when available · Appointments recommended
+              Studio: {formatAddress()}
             </p>
           </div>
         </div>
@@ -91,20 +71,24 @@ export default function Home() {
               Our Services
             </p>
             <h2 className="mt-2 text-3xl font-extrabold text-slate-900">
-              Cuts, styles & special moments
+              Braids, twists, plaits & treatments
             </h2>
+            <p className="mt-3 max-w-2xl text-slate-600">
+              All kinds of hairstyles for kids — braided with natural hair or
+              hairpiece. Adult braiding available at our Sandton Rivonia studio.
+            </p>
           </div>
           <Link
             href="/services"
             className="text-sm font-bold text-sky-600 hover:text-sky-700"
           >
-            See all services →
+            See full menu →
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.slice(0, 3).map((service) => (
-            <ServiceCard key={service.id} {...service} />
+        <div className="mt-8 space-y-6">
+          {serviceCategories.slice(0, 2).map((category) => (
+            <ServiceCategory key={category.id} {...category} />
           ))}
         </div>
       </section>
@@ -112,26 +96,27 @@ export default function Home() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="text-center text-sm font-bold uppercase tracking-wider text-sky-500">
-            Parent Approved
+            Areas We Service
           </p>
           <h2 className="mt-2 text-center text-3xl font-extrabold text-slate-900">
-            Families love the experience
+            Johannesburg & surrounds
           </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
+            Visit our Sandton Rivonia studio or book a house call in your area.
+          </p>
 
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {testimonials.map((item) => (
-              <blockquote
-                key={item.name}
-                className="rounded-3xl border border-sky-100 bg-sky-50/50 p-6"
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            {serviceAreas.map((area) => (
+              <span
+                key={area}
+                className={`rounded-full px-5 py-2 text-sm font-bold ${
+                  area === "Sandton" || area === "Rivonia"
+                    ? "bg-gradient-to-r from-sky-500 to-pink-500 text-white shadow-md"
+                    : "border border-sky-100 bg-sky-50 text-slate-700"
+                }`}
               >
-                <p className="text-sm leading-relaxed text-slate-700">
-                  &ldquo;{item.quote}&rdquo;
-                </p>
-                <footer className="mt-4">
-                  <p className="font-bold text-slate-800">{item.name}</p>
-                  <p className="text-sm text-slate-500">{item.role}</p>
-                </footer>
-              </blockquote>
+                {area}
+              </span>
             ))}
           </div>
         </div>
@@ -139,17 +124,28 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="rounded-[2rem] bg-gradient-to-r from-sky-500 to-pink-500 px-6 py-10 text-center text-white shadow-xl sm:px-10">
-          <h2 className="text-3xl font-extrabold">Ready for a great hair day?</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-sky-50 sm:text-base">
-            Book online or give us a call. We&apos;ll match your child with a stylist
-            who knows how to make salon time fun.
+          <p className="text-sm font-bold uppercase tracking-wider text-sky-100">
+            First-time clients get 20% off
           </p>
-          <Link
-            href="/contact"
-            className="mt-6 inline-flex rounded-full bg-white px-6 py-3 text-sm font-bold text-sky-700 transition hover:bg-sky-50"
-          >
-            Get in Touch
-          </Link>
+          <h2 className="mt-2 text-3xl font-extrabold">
+            Book your style on WhatsApp — 24/7
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-sky-50 sm:text-base">
+            Easily enquire anytime. Our team assists on WhatsApp around the clock,
+            and we can work with tight deadlines when you need styles in a hurry.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <BookButton
+              label="Chat on WhatsApp"
+              variant="whatsapp"
+              className="!bg-white !text-[#25D366] hover:!bg-sky-50"
+            />
+            <BookButton
+              label="Book Appointment"
+              message="Hi! I'd like to book an appointment at Kids Hair Planet."
+              className="!bg-slate-900 !from-slate-900 !to-slate-800 hover:!bg-slate-800"
+            />
+          </div>
         </div>
       </section>
     </>

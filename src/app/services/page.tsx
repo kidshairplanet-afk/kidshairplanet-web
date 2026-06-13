@@ -1,49 +1,54 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ServiceCard } from "@/components/ServiceCard";
-import { services } from "@/lib/site";
+import { BookButton } from "@/components/BookButton";
+import { ServiceCategory } from "@/components/ServiceCategory";
+import { serviceCategories, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Haircuts, first-haircut packages, styling, and party packages for kids.",
+  description:
+    "Expert braiding, twists, plaiting, and hair treatments for kids and adults. Studio walk-ins and house calls.",
 };
 
 export default function ServicesPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-      <div className="max-w-2xl">
+      <div className="max-w-3xl">
         <p className="text-sm font-bold uppercase tracking-wider text-sky-500">
           Services
         </p>
         <h1 className="mt-2 text-4xl font-extrabold text-slate-900">
-          Services made for little ones
+          Our full service menu
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-slate-600">
-          Every service is designed around comfort, patience, and a little bit of
-          fun. Prices may vary by hair length and style complexity.
+          Expert braiding for kids and adults — natural hair or with hairpiece.
+          Walk-ins welcome at our Sandton Rivonia studio, or book a house call.
+          Enquire on WhatsApp for pricing and availability.
         </p>
+        <div className="mt-6">
+          <BookButton label="Book Appointment" variant="whatsapp" />
+        </div>
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <ServiceCard key={service.id} {...service} />
+      <div className="mt-10 space-y-8">
+        {serviceCategories.map((category) => (
+          <ServiceCategory key={category.id} {...category} />
         ))}
       </div>
 
-      <div className="mt-12 rounded-3xl border border-amber-100 bg-amber-50 p-6 sm:p-8">
-        <h2 className="text-xl font-bold text-slate-900">Salon policies</h2>
+      <div className="mt-12 rounded-3xl border border-emerald-100 bg-emerald-50 p-6 sm:p-8">
+        <h2 className="text-xl font-bold text-slate-900">Good to know</h2>
         <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-600">
-          <li>• Children under 12 must be accompanied by a parent or guardian.</li>
-          <li>• Please arrive 5 minutes early so little ones can settle in.</li>
-          <li>• Cancellations within 24 hours may incur a fee.</li>
-          <li>• We use gentle, kid-safe products whenever possible.</li>
+          <li>• First-time clients receive 20% off — mention when you book.</li>
+          <li>• We braid with your child&apos;s natural hair or added hairpiece.</li>
+          <li>• House calls available across our service areas.</li>
+          <li>• Tight deadlines? WhatsApp us — we&apos;ll do our best to accommodate.</li>
+          <li>• 24/7 WhatsApp assistance from our team.</li>
         </ul>
-        <Link
-          href="/contact"
-          className="mt-6 inline-flex rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800"
-        >
-          Questions? Contact us
-        </Link>
+        <BookButton
+          label="Enquire on WhatsApp"
+          variant="whatsapp"
+          className="mt-6"
+        />
       </div>
     </div>
   );

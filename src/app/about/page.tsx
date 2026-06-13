@@ -1,30 +1,31 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { site } from "@/lib/site";
+import { BookButton } from "@/components/BookButton";
+import { formatAddress, serviceAreas, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Kids Hair Planet and our kid-first salon experience.",
+  description:
+    "Kids Hair Planet — expert braiding for kids and adults in Sandton Rivonia. Studio walk-ins and house calls.",
 };
 
 const values = [
   {
-    title: "Patience first",
+    title: "Expert braiding",
     description:
-      "We move at your child's pace—never rushing a nervous first-timer or squirmy toddler.",
-    emoji: "🐢",
+      "Skilled stylists for all kinds of kids' hairstyles — natural hair or with hairpiece — plus adult braiding at our studio.",
+    emoji: "💇🏽‍♀️",
   },
   {
-    title: "Playful atmosphere",
+    title: "Studio & house calls",
     description:
-      "Bright colors, friendly faces, and a space that feels more like fun than a chore.",
-    emoji: "🌈",
+      "Walk in at our Sandton Rivonia state-of-the-art studio, or book us to come to you across Johannesburg.",
+    emoji: "🏠",
   },
   {
-    title: "Skilled stylists",
+    title: "Always reachable",
     description:
-      "Our team specializes in children's hair and knows how to work with every age and texture.",
-    emoji: "💇",
+      "Enquire on WhatsApp anytime — 24/7 assistance from our team, even for tight deadlines.",
+    emoji: "💬",
   },
 ];
 
@@ -36,12 +37,10 @@ export default function AboutPage() {
           About Us
         </p>
         <h1 className="mt-2 text-4xl font-extrabold text-slate-900">
-          A salon built for kids—and peace of mind for parents
+          Premium braiding for the whole family
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-slate-600">
-          {site.name} was created because kids deserve a haircut experience that
-          feels safe, positive, and even exciting. We combine professional styling
-          with the warmth and flexibility families need.
+          {site.description}
         </p>
       </div>
 
@@ -61,26 +60,24 @@ export default function AboutPage() {
       </div>
 
       <section className="mt-12 rounded-[2rem] bg-white p-8 shadow-sm">
-        <h2 className="text-2xl font-extrabold text-slate-900">Our story</h2>
+        <h2 className="text-2xl font-extrabold text-slate-900">Visit us</h2>
         <div className="mt-4 space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base">
           <p>
-            What started as a small chair in the corner of a family salon grew into
-            a dedicated space where children are the priority—not an afterthought.
-            Parents told us they wanted stylists who understood wiggles, tears, and
-            triumphs. We listened.
+            Our studio is in Sandton Rivonia at {formatAddress()}. We welcome
+            walk-ins for adult braiding in a comfortable, state-of-the-art space.
           </p>
           <p>
-            Today, {site.name} welcomes babies getting their first trim, tweens
-            exploring new styles, and everyone in between. Every visit is a chance
-            to build confidence and create a memory worth smiling about.
+            For kids, we create beautiful braids, twists, and plaits using their
+            natural hair or added hairpiece — whatever suits the style. We also
+            offer house calls across {serviceAreas.slice(0, -1).join(", ")}, and{" "}
+            {serviceAreas[serviceAreas.length - 1]}.
+          </p>
+          <p>
+            New clients enjoy 20% off their first visit. Message us on WhatsApp
+            to book — we&apos;re here 24/7 and happy to help with urgent requests.
           </p>
         </div>
-        <Link
-          href="/contact"
-          className="mt-6 inline-flex rounded-full bg-gradient-to-r from-sky-500 to-pink-500 px-5 py-2.5 text-sm font-bold text-white transition hover:from-sky-600 hover:to-pink-600"
-        >
-          Plan your visit
-        </Link>
+        <BookButton label="Book Appointment" variant="whatsapp" className="mt-6" />
       </section>
     </div>
   );
