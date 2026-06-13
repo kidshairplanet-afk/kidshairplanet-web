@@ -1,14 +1,17 @@
 export const site = {
-  name: "Kids Hair Planet",
-  tagline: "Expert braiding for kids & adults — studio & house calls",
+  name: "Zaina's Hair Planet",
+  owner: "Zaina",
+  kidsBrand: "Kids Hair Planet",
+  kidsBrandSlug: "kidshairplanet",
+  tagline: "Premium braiding artistry for every generation",
   description:
-    "We offer walk-ins in Sandton Rivonia for adult braiding in a state-of-the-art hair studio. Expert braiding for all kinds of kids' hairstyles — with their natural hair or hairpiece — plus house calls across Johannesburg.",
+    "From playful kids' styles to polished adult braids — Zaina brings expert craftsmanship to Sandton Rivonia and beyond. Walk into our state-of-the-art studio or book a house call.",
   phones: ["078 965 9521", "078 041 1803"],
   whatsapp: {
     number: "27789659521",
     display: "078 965 9521",
     defaultMessage:
-      "Hi Kids Hair Planet! I'd like to enquire about booking an appointment.",
+      "Hi Zaina's Hair Planet! I'd like to enquire about booking an appointment.",
   },
   email: "kidshairplanet@gmail.com",
   address: {
@@ -21,23 +24,18 @@ export const site = {
     {
       title: "20% off first-time clients",
       description: "Welcome offer for new clients — mention it when you book.",
-      emoji: "🎁",
     },
     {
       title: "Tight deadlines? We deliver",
-      description: "We can manage urgent bookings when you need styles in a hurry.",
-      emoji: "⚡",
+      description: "Urgent styles handled with care and precision.",
     },
     {
       title: "24/7 WhatsApp assistance",
-      description: "Easily enquire anytime — our team is here to help on WhatsApp.",
-      emoji: "💬",
+      description: "Enquire anytime — our team responds on WhatsApp.",
     },
     {
-      title: "Walk-ins & house calls",
-      description:
-        "Visit our Sandton Rivonia studio or book a house call for added convenience.",
-      emoji: "🏠",
+      title: "Studio & house calls",
+      description: "Walk in at Sandton Rivonia or book us to come to you.",
     },
   ],
   social: {
@@ -61,8 +59,8 @@ export const serviceCategories = [
   {
     id: "wash-treatments",
     title: "Hair Wash & Treatments",
-    emoji: "💧",
-    color: "sky",
+    color: "gold",
+    audience: "both" as const,
     note: null,
     items: [
       "Hair Wash",
@@ -76,16 +74,16 @@ export const serviceCategories = [
   {
     id: "twists",
     title: "Twists",
-    emoji: "🌀",
-    color: "emerald",
+    color: "rose",
+    audience: "both" as const,
     note: "Includes wash, hairpiece & beads",
     items: ["Short length", "Medium length", "Long length"],
   },
   {
     id: "plaiting",
     title: "Plaiting Hair",
-    emoji: "✨",
-    color: "amber",
+    color: "plum",
+    audience: "both" as const,
     note: "Includes wash & beads",
     items: [
       "Cornrows — without hairpiece",
@@ -105,8 +103,8 @@ export const serviceCategories = [
   {
     id: "braids",
     title: "Braids",
-    emoji: "🎀",
-    color: "pink",
+    color: "gold",
+    audience: "both" as const,
     note: "Includes wash, hairpiece & beads",
     items: [
       "Short Braids — thick",
@@ -124,7 +122,10 @@ export const serviceCategories = [
 
 export const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/kids", label: "Kids Hair Planet" },
+  { href: "/adults", label: "Adult Styles" },
   { href: "/services", label: "Services" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;

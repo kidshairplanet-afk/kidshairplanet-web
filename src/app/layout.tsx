@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -25,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-[#f8fbff] font-sans text-slate-800 antialiased">
+    <html lang="en" className={`${playfair.variable} ${dmSans.variable} h-full`}>
+      <body className="flex min-h-full flex-col bg-cream font-sans text-plum antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

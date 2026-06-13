@@ -19,9 +19,9 @@ export function BookButton({
 
   const variants = {
     primary:
-      "bg-gradient-to-r from-sky-500 to-pink-500 text-white hover:from-sky-600 hover:to-pink-600",
+      "bg-plum text-cream hover:bg-plum-soft",
     secondary:
-      "border border-sky-200 bg-white text-sky-700 hover:bg-sky-50",
+      "border border-gold/50 bg-white text-plum hover:bg-cream-dark",
     whatsapp: "bg-[#25D366] text-white hover:bg-[#1fb855]",
   };
 

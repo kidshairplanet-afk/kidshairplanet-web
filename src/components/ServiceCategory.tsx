@@ -1,50 +1,54 @@
+const colorMap: Record<string, string> = {
+  gold: "from-gold-light/40 to-cream border-gold/30",
+  rose: "from-rose/30 to-cream border-rose/40",
+  plum: "from-plum-soft/10 to-cream border-plum/20",
+};
+
 type ServiceCategoryProps = {
   title: string;
-  emoji: string;
   color: string;
   note: string | null;
   items: readonly string[];
-};
-
-const colorMap: Record<string, string> = {
-  sky: "from-sky-50 to-sky-100 border-sky-200",
-  emerald: "from-emerald-50 to-emerald-100 border-emerald-200",
-  amber: "from-amber-50 to-amber-100 border-amber-200",
-  pink: "from-pink-50 to-pink-100 border-pink-200",
+  audience?: "kids" | "adults" | "both";
 };
 
 export function ServiceCategory({
   title,
-  emoji,
   color,
   note,
   items,
+  audience = "both",
 }: ServiceCategoryProps) {
-  const palette = colorMap[color] ?? colorMap.sky;
+  const palette = colorMap[color] ?? colorMap.gold;
 
   return (
     <section
       className={`rounded-3xl border bg-gradient-to-br p-6 sm:p-8 ${palette}`}
     >
-      <div className="flex items-start gap-4">
-        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white text-2xl shadow-sm">
-          {emoji}
-        </span>
-        <div>
-          <h2 className="text-2xl font-extrabold text-slate-900">{title}</h2>
-          {note && (
-            <p className="mt-1 text-sm font-semibold text-slate-600">{note}</p>
-          )}
-        </div>
+      <div className="flex flex-wrap items-center gap-3">
+        <h2 className="font-display text-2xl font-bold text-plum">{title}</h2>
+        {audience === "kids" && (
+          <span className="rounded-full bg-rose/40 px-3 py-0.5 text-xs font-bold text-plum">
+            Kids Hair Planet
+          </span>
+        )}
+        {audience === "adults" && (
+          <span className="rounded-full bg-plum/10 px-3 py-0.5 text-xs font-bold text-plum">
+            Adult Styles
+          </span>
+        )}
       </div>
+      {note && (
+        <p className="mt-2 text-sm font-medium text-plum-soft">{note}</p>
+      )}
 
       <ul className="mt-6 grid gap-2 sm:grid-cols-2">
         {items.map((item) => (
           <li
             key={item}
-            className="flex items-start gap-2 rounded-xl bg-white/70 px-4 py-3 text-sm font-medium text-slate-700"
+            className="flex items-start gap-2 rounded-xl bg-white/60 px-4 py-3 text-sm text-plum-soft"
           >
-            <span className="mt-1 text-sky-500">•</span>
+            <span className="mt-1 text-gold">◆</span>
             {item}
           </li>
         ))}

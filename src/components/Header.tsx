@@ -4,23 +4,27 @@ import { navLinks, site } from "@/lib/site";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-sky-100 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        <Link href="/" className="group flex items-center gap-2">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-pink-400 text-lg shadow-sm">
-            ✨
-          </span>
-          <span className="text-lg font-extrabold tracking-tight text-slate-800 group-hover:text-sky-600">
+    <header className="sticky top-0 z-50 border-b border-cream-dark/80 bg-cream/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+        <Link href="/" className="group min-w-0">
+          <span className="font-display text-lg font-bold tracking-tight text-plum sm:text-xl">
             {site.name}
+          </span>
+          <span className="mt-0.5 block truncate text-[10px] font-semibold tracking-[0.2em] text-gold uppercase sm:text-xs">
+            Premium Braiding Studio
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-sky-50 hover:text-sky-700"
+              className={`rounded-full px-3 py-2 text-xs font-semibold transition xl:px-4 xl:text-sm ${
+                link.href === "/kids"
+                  ? "text-rose-deep hover:bg-rose/20"
+                  : "text-plum-soft hover:bg-cream-dark hover:text-plum"
+              }`}
             >
               {link.label}
             </Link>
@@ -28,18 +32,18 @@ export function Header() {
         </nav>
 
         <BookButton
-          label="Book Appointment"
+          label="Book"
           variant="whatsapp"
-          className="!px-4 !py-2 !text-sm"
+          className="!px-4 !py-2 !text-xs sm:!text-sm"
         />
       </div>
 
-      <nav className="flex gap-1 overflow-x-auto border-t border-sky-50 px-4 py-2 md:hidden">
+      <nav className="flex gap-1 overflow-x-auto border-t border-cream-dark/60 px-4 py-2 lg:hidden">
         {navLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className="shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-sky-50"
+            className="shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold text-plum-soft transition hover:bg-cream-dark"
           >
             {link.label}
           </Link>
