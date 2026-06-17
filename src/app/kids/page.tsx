@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BookButton } from "@/components/BookButton";
+import { FeaturedServices } from "@/components/FeaturedServices";
 import { GalleryMosaic } from "@/components/GalleryShowcase";
 import { ImageFrame } from "@/components/ImageFrame";
 import { getGalleryByAudience } from "@/lib/gallery";
+import { getFeaturedServicesByAudience } from "@/lib/featured-services";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 const kidsImages = getGalleryByAudience("kids");
+const kidsFeaturedServices = getFeaturedServicesByAudience("kids");
 
 export default function KidsPage() {
   return (
@@ -81,6 +84,12 @@ export default function KidsPage() {
           </div>
         </div>
       </section>
+
+      <FeaturedServices
+        services={kidsFeaturedServices}
+        heading="Kids styling services"
+        description="From braided locks and dreadlocks to cornrows with fades — expert care for boys and girls."
+      />
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
         <h2 className="font-display text-center text-3xl font-bold text-plum">

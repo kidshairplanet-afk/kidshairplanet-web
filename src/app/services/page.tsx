@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { BookButton } from "@/components/BookButton";
+import { FeaturedServices } from "@/components/FeaturedServices";
 import { ServiceCategory } from "@/components/ServiceCategory";
+import { featuredServices } from "@/lib/featured-services";
 import { serviceCategories, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -34,6 +36,12 @@ export default function ServicesPage() {
           />
         </div>
       </div>
+
+      <FeaturedServices
+        services={featuredServices}
+        heading="Featured styles"
+        description="Browse our signature services with real client work — enquire on WhatsApp for pricing."
+      />
 
       <div className="mt-12 space-y-8">
         {serviceCategories.map((category) => (

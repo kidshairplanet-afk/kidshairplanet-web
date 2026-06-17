@@ -110,6 +110,48 @@ export const galleryImages: GalleryImage[] = [
     audience: "adults",
     frame: "tilt-right",
   },
+  {
+    src: "/services/boys-braided-locks.jpg",
+    alt: "Boys hair cut with braided locks",
+    audience: "kids",
+    frame: "rounded",
+  },
+  {
+    src: "/services/girls-dreadlocks.jpg",
+    alt: "Girls dreadlocks updo styling",
+    audience: "kids",
+    frame: "arch",
+  },
+  {
+    src: "/services/cornrows-fade-boys.jpg",
+    alt: "Cornrows with fade on boys",
+    audience: "kids",
+    frame: "circle",
+  },
+  {
+    src: "/services/cornrows-design.jpg",
+    alt: "Creative cornrow braid design",
+    audience: "adults",
+    frame: "tilt-left",
+  },
+  {
+    src: "/services/blowout.jpg",
+    alt: "Professional blowout styling",
+    audience: "adults",
+    frame: "rounded",
+  },
+  {
+    src: "/services/afro-treatment.jpg",
+    alt: "Afro hair treatment and loc care",
+    audience: "kids",
+    frame: "hexagon",
+  },
+  {
+    src: "/services/hair-relaxing.jpg",
+    alt: "Hair relaxing and long braid styling",
+    audience: "adults",
+    frame: "arch",
+  },
 ];
 
 export function getGalleryByAudience(audience: "kids" | "adults") {
