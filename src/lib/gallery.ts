@@ -135,8 +135,8 @@ export const galleryImages: GalleryImage[] = [
     frame: "tilt-left",
   },
   {
-    src: "/services/blowout.jpg",
-    alt: "Professional blowout styling",
+    src: "/services/wig-installations-treatments.jpg",
+    alt: "Wig installations and wig treatments",
     audience: "adults",
     frame: "rounded",
   },
@@ -147,8 +147,8 @@ export const galleryImages: GalleryImage[] = [
     frame: "hexagon",
   },
   {
-    src: "/services/hair-relaxing.jpg",
-    alt: "Hair relaxing and long braid styling",
+    src: "/services/braids.jpg",
+    alt: "Long braids styling",
     audience: "adults",
     frame: "arch",
   },

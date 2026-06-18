@@ -42,17 +42,17 @@ export const featuredServices = [
     ],
   },
   {
-    id: "blowout",
-    title: "Blowout",
+    id: "wig-installations-treatments",
+    title: "Wig installations and wig treatments",
     description:
-      "Volume, shine, and smooth finish — professional blowout styling for a polished, event-ready look.",
-    image: "/services/blowout.jpg",
+      "Expert wig installation and maintenance — secure fit, natural finish, and professional wig care treatments to keep your look fresh.",
+    image: "/services/wig-installations-treatments.jpg",
     audience: "both" as const,
     features: [
-      "Heat-safe blow dry",
-      "Volume & body styling",
-      "Smooth, frizz-free finish",
-      "Curls or waves on request",
+      "Custom wig installation",
+      "Secure, natural-looking fit",
+      "Wig wash & conditioning",
+      "Maintenance & restyling",
     ],
   },
   {
@@ -70,17 +70,17 @@ export const featuredServices = [
     ],
   },
   {
-    id: "hair-relaxing",
-    title: "Hair Relaxing",
+    id: "braids",
+    title: "Braids",
     description:
-      "Professional relaxer application for smooth, manageable hair — carefully applied with scalp protection.",
-    image: "/services/hair-relaxing.jpg",
+      "Classic and creative braiding for every length — from short styles to long statement braids, finished with precision and care.",
+    image: "/services/braids.jpg",
     audience: "both" as const,
     features: [
-      "Professional relaxer application",
-      "Scalp protection during process",
-      "Smooth, straight finish",
-      "Aftercare guidance included",
+      "Short, medium & long braids",
+      "Thick, medium & thin sizing",
+      "Includes wash & hairpiece",
+      "Beads & finishing details",
     ],
   },
 ] as const;
